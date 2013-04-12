@@ -34,6 +34,18 @@
         self.display.text = digit;
         self.userIsInTheMiddleOfEnteringANumber = YES;
     }
-    }
+}
+
+- (IBAction)enterPressed:(id)sender
+{
+    
+}
+
+
+
+- (IBAction)operessionPressed:(UIButton *)sender
+{
+    
+}
 
 @end
