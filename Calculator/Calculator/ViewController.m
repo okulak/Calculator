@@ -10,20 +10,30 @@
 
 @interface ViewController ()
 
+@property (nonatomic) BOOL userIsInTheMiddleOfEnteringANumber;
+
 @end
 
 @implementation ViewController
+@synthesize display;
+@synthesize userIsInTheMiddleOfEnteringANumber;
 
-- (void)viewDidLoad
+- (IBAction)digitPressed:(UIButton *)sender
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+    NSString *digit = [sender currentTitle];
+    NSLog(@"User touched %@", digit);
+//    UILabel *myDisplay = self.display; //[self display]
+//    NSString *currentDisplayText = self.display.text;
+//    NSString *newDisplayText = [currentDisplayText stringByAppendingString:digit];
+    if (self.userIsInTheMiddleOfEnteringANumber)
+    {
+       self.display.Text = [self.display.text stringByAppendingString:digit];
+    }
+    else
+    {
+        self.display.text = digit;
+        self.userIsInTheMiddleOfEnteringANumber = YES;
+    }
+    }
 
 @end
