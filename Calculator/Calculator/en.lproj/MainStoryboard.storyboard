@@ -178,7 +178,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="operessionPressed:" destination="2" eventType="touchUpInside" id="zbC-h1-ab5"/>
+                                    <action selector="operationPressed:" destination="2" eventType="touchUpInside" id="fUA-gi-dWa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="W5h-Nu-DpO">
@@ -193,7 +193,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="operessionPressed:" destination="2" eventType="touchUpInside" id="l0x-wb-WLq"/>
+                                    <action selector="operationPressed:" destination="2" eventType="touchUpInside" id="xbN-dc-MMK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YC1-FM-cCa">
@@ -208,7 +208,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="operessionPressed:" destination="2" eventType="touchUpInside" id="L56-eA-IcF"/>
+                                    <action selector="operationPressed:" destination="2" eventType="touchUpInside" id="3uJ-HK-StW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aO1-ba-36P">
@@ -223,7 +223,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="operessionPressed:" destination="2" eventType="touchUpInside" id="fCU-OG-RHP"/>
+                                    <action selector="operationPressed:" destination="2" eventType="touchUpInside" id="MCm-ox-zLR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tN1-v8-vBV">
@@ -238,7 +238,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="enterPressed:" destination="2" eventType="touchUpInside" id="eOP-dC-PRV"/>
+                                    <action selector="enterPressed" destination="2" eventType="touchUpInside" id="W80-Ok-ABX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -257,8 +257,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
                 <relationship kind="action" name="digitPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="enterPressed:"/>
-                <relationship kind="action" name="operessionPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="operationPressed:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="display" candidateClass="UILabel"/>
             </relationships>
         </class>
