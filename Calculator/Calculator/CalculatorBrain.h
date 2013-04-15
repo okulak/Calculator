@@ -12,5 +12,6 @@
 
 - (void) pushOperand: (double) operand;
 - (double) performOperetion: (NSString*) operation;
+- (double) performFunction: (NSString*) function;
 
 @end

@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Oleksandr Kulakov. All rights reserved.
 //
 
+#include <math.h>
 #import "ViewController.h"
 #import "CalculatorBrain.h"
 
@@ -79,6 +80,39 @@
     }
 
     
+}
+
+- (IBAction)piPressed:(UIButton *)sender
+{
+    NSString * pi = [sender currentTitle];
+    if (self.userIsInTheMiddleOfEnteringANumber)
+    {
+        self.display.Text = [self.display.text stringByAppendingString:pi];
+    }
+    else
+    {
+        self.display.text = pi;
+        self.userIsInTheMiddleOfEnteringANumber = YES;
+    }
+
+}
+- (IBAction)cPressed
+{
+    self.brain = nil;
+    self.display.text = [NSString stringWithFormat:@"0"];
+    self.userIsInTheMiddleOfEnteringANumber = NO;
+}
+
+- (IBAction)functionPressed:(UIButton *)sender
+{
+    if (self.userIsInTheMiddleOfEnteringANumber)
+    {
+        [self enterPressed];
+    }
+
+    NSString *function = [sender currentTitle];
+    double result = [self.brain performFunction:function];
+    self.display.text = [NSString stringWithFormat:@"%g", result];
 }
 
 

@@ -66,12 +66,41 @@
     }
     else if ([operation isEqualToString:@"-"])
     {
-        result = [self popOperand]-[self popOperand];
+        double subtrahend = [self popOperand];
+        result = [self popOperand]-subtrahend;
     }
     
     [self pushOperand:result];
     return result;
 }
+
+
+- (double) performFunction: (NSString*) function
+{
+    double result = 0;
+    
+    if ([function isEqualToString:@"sin"])
+    {
+        result = (double) sin([self popOperand]);
+    }
+    else if ([function isEqualToString:@"cos"])
+    {
+        result = (double) cos([self popOperand]);
+    }
+    else if ([function isEqualToString:@"sqrt"])
+    {
+        if ([self.operandStack lastObject] >= 0)
+        {
+            result = (double) sqrt([self popOperand]);
+        }
+        
+    }
+
+    
+ [self pushOperand:result];
+ return result;
+}
+
 
 
 @end

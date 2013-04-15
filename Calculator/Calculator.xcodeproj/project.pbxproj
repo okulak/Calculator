@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E8D0B23171C4C630097BB67 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E8D0B21171C4C630097BB67 /* MainStoryboard.storyboard */; };
 		8EA063BB1717F44D00A7EE2C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA063BA1717F44D00A7EE2C /* UIKit.framework */; };
 		8EA063BD1717F44D00A7EE2C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA063BC1717F44D00A7EE2C /* Foundation.framework */; };
 		8EA063BF1717F44D00A7EE2C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA063BE1717F44D00A7EE2C /* CoreGraphics.framework */; };
@@ -16,12 +17,12 @@
 		8EA063CD1717F44D00A7EE2C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EA063CC1717F44D00A7EE2C /* Default.png */; };
 		8EA063CF1717F44D00A7EE2C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EA063CE1717F44D00A7EE2C /* Default@2x.png */; };
 		8EA063D11717F44D00A7EE2C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EA063D01717F44D00A7EE2C /* Default-568h@2x.png */; };
-		8EA063D41717F44D00A7EE2C /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EA063D21717F44D00A7EE2C /* MainStoryboard.storyboard */; };
 		8EA063D71717F44D00A7EE2C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA063D61717F44D00A7EE2C /* ViewController.m */; };
 		8EA063DF1718125D00A7EE2C /* CalculatorBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA063DE1718125D00A7EE2C /* CalculatorBrain.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E8D0B22171C4C630097BB67 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		8EA063B71717F44D00A7EE2C /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EA063BA1717F44D00A7EE2C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8EA063BC1717F44D00A7EE2C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -35,7 +36,6 @@
 		8EA063CC1717F44D00A7EE2C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		8EA063CE1717F44D00A7EE2C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		8EA063D01717F44D00A7EE2C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		8EA063D31717F44D00A7EE2C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		8EA063D51717F44D00A7EE2C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		8EA063D61717F44D00A7EE2C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8EA063DD1718125D00A7EE2C /* CalculatorBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrain.h; sourceTree = "<group>"; };
@@ -86,9 +86,9 @@
 		8EA063C01717F44D00A7EE2C /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				8E8D0B21171C4C630097BB67 /* MainStoryboard.storyboard */,
 				8EA063C91717F44D00A7EE2C /* AppDelegate.h */,
 				8EA063CA1717F44D00A7EE2C /* AppDelegate.m */,
-				8EA063D21717F44D00A7EE2C /* MainStoryboard.storyboard */,
 				8EA063DD1718125D00A7EE2C /* CalculatorBrain.h */,
 				8EA063DE1718125D00A7EE2C /* CalculatorBrain.m */,
 				8EA063D51717F44D00A7EE2C /* ViewController.h */,
@@ -167,7 +167,7 @@
 				8EA063CD1717F44D00A7EE2C /* Default.png in Resources */,
 				8EA063CF1717F44D00A7EE2C /* Default@2x.png in Resources */,
 				8EA063D11717F44D00A7EE2C /* Default-568h@2x.png in Resources */,
-				8EA063D41717F44D00A7EE2C /* MainStoryboard.storyboard in Resources */,
+				8E8D0B23171C4C630097BB67 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,20 +188,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		8E8D0B21171C4C630097BB67 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8E8D0B22171C4C630097BB67 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
 		8EA063C31717F44D00A7EE2C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8EA063C41717F44D00A7EE2C /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		8EA063D21717F44D00A7EE2C /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8EA063D31717F44D00A7EE2C /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -304,6 +304,7 @@
 				8EA063DC1717F44D00A7EE2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
