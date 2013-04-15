@@ -66,4 +66,20 @@
     self.display.text = [NSString stringWithFormat:@"%g", result];
 }
 
+
+- (IBAction)pointPressed:(UIButton *)sender
+{
+    NSString *point = [sender currentTitle];
+    NSRange range = [self.display.text rangeOfString:point];
+    if (range.length == 0)
+    {
+        self.display.Text = [self.display.text stringByAppendingString:point];
+        self.userIsInTheMiddleOfEnteringANumber = YES;
+   
+    }
+
+    
+}
+
+
 @end
