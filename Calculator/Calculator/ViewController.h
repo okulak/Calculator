@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *display;
 @property (weak, nonatomic) IBOutlet UILabel *secondDisplay;
+@property (weak, nonatomic) IBOutlet UILabel *equal;
 
 
 @end

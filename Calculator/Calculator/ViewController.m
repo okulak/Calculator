@@ -22,6 +22,7 @@
 @implementation ViewController
 @synthesize display;
 @synthesize secondDisplay;
+@synthesize equal;
 @synthesize userIsInTheMiddleOfEnteringANumber;
 @synthesize topOfTheLine;
 @synthesize brain = _brain;
@@ -87,6 +88,7 @@
     double result = [self.brain performOperetion:operation];
     self.display.text = [NSString stringWithFormat:@"%g", result];
     self.secondDisplay.Text = [self.secondDisplay.text stringByAppendingString:[sender currentTitle]];
+    self.equal.text = @"=";
     checkForOperation = YES;
 }
 
@@ -111,6 +113,7 @@
     self.brain = nil;
     self.display.text = [NSString stringWithFormat:@"0"];
     self.secondDisplay.text = [NSString stringWithFormat:@""];
+    self.equal.text = @"";
     self.userIsInTheMiddleOfEnteringANumber = NO;
     self.topOfTheLine = NO;
     checkForOperation = YES;
@@ -128,6 +131,7 @@
     double result = [self.brain performFunction:function];
     self.display.text = [NSString stringWithFormat:@"%g", result];
     self.secondDisplay.Text = [self.secondDisplay.text stringByAppendingString:[sender currentTitle]];
+    self.equal.text = @"=";
     topOfTheLine = YES;
     
 }

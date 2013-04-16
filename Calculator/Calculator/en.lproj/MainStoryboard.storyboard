@@ -368,7 +368,7 @@
                                     <action selector="functionPressed:" destination="2" eventType="touchUpInside" id="hmT-f1-MMv"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="=" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aHa-jN-6RU">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aHa-jN-6RU">
                                 <rect key="frame" x="289" y="20" width="12" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -410,6 +410,7 @@
                     </view>
                     <connections>
                         <outlet property="display" destination="eJl-Ti-ZCF" id="Yzv-lp-E4Q"/>
+                        <outlet property="equal" destination="aHa-jN-6RU" id="Ift-PR-MUM"/>
                         <outlet property="secondDisplay" destination="CMo-dK-vdT" id="tXg-bW-T6Q"/>
                     </connections>
                 </viewController>
