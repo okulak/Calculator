@@ -13,5 +13,6 @@
 - (void) pushOperand: (double) operand;
 - (double) performOperetion: (NSString*) operation;
 - (double) performFunction: (NSString*) function;
-
+- (int) lastValueLengh;
+- (NSString *) lastObject;
 @end

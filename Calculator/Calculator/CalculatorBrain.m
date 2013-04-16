@@ -9,6 +9,7 @@
 #import "CalculatorBrain.h"
 
 @interface CalculatorBrain ()
+@property (nonatomic) BOOL topOfTheLine;
 
 @property (strong, nonatomic) NSMutableArray *operandStack;
 
@@ -16,6 +17,7 @@
 
 @implementation CalculatorBrain
 @synthesize operandStack = _operandStack;
+@synthesize topOfTheLine;
 
 - (NSMutableArray *) operandStack
 {
@@ -64,12 +66,32 @@
         }
         
     }
+
+    
+
     else if ([operation isEqualToString:@"-"])
     {
         double subtrahend = [self popOperand];
-        result = [self popOperand]-subtrahend;
+        if (!topOfTheLine)
+        {
+            result = [self popOperand]-subtrahend;
+            if (subtrahend == 0)
+            {
+                topOfTheLine = YES;
+            }
+            
+        }
+        else if ([self popOperand]!= 0)
+        {
+            result = -[self popOperand];
+            
+        }
+        
     }
-    
+    else if ([operation isEqualToString:@"+/-"])
+    {
+        result = -[self popOperand];
+    }
     [self pushOperand:result];
     return result;
 }
@@ -82,6 +104,7 @@
     if ([function isEqualToString:@"sin"])
     {
         result = (double) sin([self popOperand]);
+       
     }
     else if ([function isEqualToString:@"cos"])
     {
@@ -93,12 +116,46 @@
         {
             result = (double) sqrt([self popOperand]);
         }
-        
+        else
+        {
+            return 0;
+        }
+  
+    }
+    else if ([function isEqualToString:@"log"])
+    {
+        result = (double) log([self popOperand]);
+    }
+    else if ([function isEqualToString:@"e"])
+    {
+        result = (double) exp([self popOperand]);
+    }
+    if ([function isEqualToString:@"π"])
+    {
+       result = (double) M_PI;
     }
 
-    
+
+
  [self pushOperand:result];
  return result;
+}
+
+- (int) lastValueLengh
+{
+    NSString * lastValue = [NSString stringWithFormat: @"%@", [self.operandStack lastObject]];
+    int lastValueLenght = lastValue.length;
+    NSLog(@"%i",lastValueLenght);
+    return lastValueLenght;
+    
+}
+
+- (NSString *) lastObject
+{
+    NSNumber *object = [self.operandStack lastObject];
+    NSString *result = [NSString stringWithFormat:@"%@", object];
+    NSLog(@"%@", result);
+    return result;
 }
 
 
