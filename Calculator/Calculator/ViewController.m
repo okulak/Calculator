@@ -44,18 +44,7 @@
 //    UILabel *myDisplay = self.display; //[self display]
 //    NSString *currentDisplayText = self.display.text;
 //    NSString *newDisplayText = [currentDisplayText stringByAppendingString:digit];
-    if (topOfTheLine)
-    {
-        self.secondDisplay.text = [self.secondDisplay.text stringByAppendingString:digit];
-        
-        
-    }
-    else
-    {
-        self.secondDisplay.text= digit;
-        topOfTheLine = YES;
-    }
-    if (self.userIsInTheMiddleOfEnteringANumber)
+        if (self.userIsInTheMiddleOfEnteringANumber)
     {
        self.display.Text = [self.display.text stringByAppendingString:digit];
        
@@ -70,8 +59,20 @@
 {
     [self.brain pushOperand:[self.display.text doubleValue]];
     self.userIsInTheMiddleOfEnteringANumber = NO;
-    self.secondDisplay.Text = [self.secondDisplay.text stringByAppendingString:@" "];
-    checkForOperation = YES;
+    if (topOfTheLine)
+    {
+        self.secondDisplay.text = [self.secondDisplay.text stringByAppendingString:@" "];
+        self.secondDisplay.text = [self.secondDisplay.text stringByAppendingString:[self.brain lastObject]];
+        
+        
+    }
+    else
+    {
+        self.secondDisplay.text= [self.brain lastObject];
+        topOfTheLine = YES;
+    }
+
+    
 
 }
 
@@ -156,7 +157,7 @@
         }
         NSString *operation = [sender currentTitle];
         double lenght = [self.brain lastValueLengh];
-        self.secondDisplay.text = [self.secondDisplay.text substringToIndex:[self.secondDisplay.text length]-(++lenght)];
+        self.secondDisplay.text = [self.secondDisplay.text substringToIndex:[self.secondDisplay.text length]-(lenght)];
         self.secondDisplay.Text = [self.secondDisplay.text stringByAppendingString:@"(-"];
         self.secondDisplay.Text = [self.secondDisplay.text stringByAppendingString:[self.brain lastObject]];
         self.secondDisplay.Text = [self.secondDisplay.text stringByAppendingString:@")"];
