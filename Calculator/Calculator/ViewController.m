@@ -142,10 +142,7 @@
     {
         self.display.text = [self.display.text substringToIndex:[self.display.text length]-1];
     }
-    if (self.secondDisplay.text.length)
-    {
-        self.secondDisplay.text = [self.secondDisplay.text substringToIndex:[self.secondDisplay.text length]-1];
-    }
+    
 
     
     
