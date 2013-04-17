@@ -1,0 +1,8 @@
+SampleSdkApp/.DS_Store
+.DS_Store
+output
+build
+*.swp
+*.xcuserdatad
+*.xcuserstate
+tags
