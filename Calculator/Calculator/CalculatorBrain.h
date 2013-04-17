@@ -15,4 +15,7 @@
 - (double) performFunction: (NSString*) function;
 - (int) lastValueLengh;
 - (NSString *) lastObject;
+- (void) clearMemory;
+- (double) plusMinus: (double) operation;
+
 @end

@@ -63,34 +63,15 @@
         if (divisor)
         {
             result = [self popOperand]/divisor;
-        }
-        
+        }        
     }
-
-    
-
     else if ([operation isEqualToString:@"-"])
     {
         double subtrahend = [self popOperand];
-        if (!topOfTheLine)
+        if (subtrahend!=0)
         {
-            result = [self popOperand]-subtrahend;
-            if (subtrahend == 0)
-            {
-                topOfTheLine = YES;
-            }
-            
-        }
-        else if ([self popOperand]!= 0)
-        {
-            result = -[self popOperand];
-            
-        }
-        
-    }
-    else if ([operation isEqualToString:@"+/-"])
-    {
-        result = -[self popOperand];
+           result = [self popOperand]-subtrahend;
+        }     
     }
     [self pushOperand:result];
     return result;
@@ -119,8 +100,7 @@
         else
         {
             return 0;
-        }
-  
+        }  
     }
     else if ([function isEqualToString:@"log"])
     {
@@ -128,17 +108,14 @@
     }
     else if ([function isEqualToString:@"e"])
     {
-        result = (double) exp([self popOperand]);
+        result = (double) M_E;
     }
     if ([function isEqualToString:@"π"])
     {
        result = (double) M_PI;
     }
-
-
-
- [self pushOperand:result];
- return result;
+    [self pushOperand:result];
+    return result;
 }
 
 - (int) lastValueLengh
@@ -146,8 +123,7 @@
     NSString * lastValue = [NSString stringWithFormat: @"%@", [self.operandStack lastObject]];
     int lastValueLenght = lastValue.length;
     NSLog(@"%i",lastValueLenght);
-    return lastValueLenght;
-    
+    return lastValueLenght;    
 }
 
 - (NSString *) lastObject
@@ -158,6 +134,21 @@
     return result;
 }
 
+- (void) clearMemory
+{
+    [self.operandStack removeAllObjects];
+}
 
+- (double) plusMinus: (double) operation
+{
+    if (operation)
+    {
+        return -operation;
+    }
+    else
+    {
+        return 0;
+    }    
+}
 
 @end
