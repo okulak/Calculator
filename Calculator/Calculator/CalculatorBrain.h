@@ -12,10 +12,15 @@
 
 - (void) pushOperand: (double) operand;
 - (double) performOperetion: (NSString*) operation;
-- (double) performFunction: (NSString*) function;
-- (int) lastValueLengh;
+- (NSString *) performOperetion2;
 - (NSString *) lastObject;
 - (void) clearMemory;
-- (double) plusMinus: (double) operation;
 
+
+@property (readonly)id program;
+
++ (double) runProgram: (id) program;
++ (NSString *) runSecondProgram: (id) program;
++ (double)runProgram:(id)program usingVariableValues:(NSDictionary *)variableValues;
++ (NSString *) descriptionOfProgram: (id) program;
 @end

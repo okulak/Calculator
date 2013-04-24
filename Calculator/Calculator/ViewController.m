@@ -41,7 +41,6 @@
 {
     checkForOperation = NO;
     NSString *digit = [sender currentTitle];
-    NSLog(@"User touched %@", digit);
     if (self.userIsInTheMiddleOfEnteringANumber)
     {
        self.display.Text = [self.display.text stringByAppendingString:digit];
@@ -81,10 +80,13 @@
     }
     NSString *operation = [sender currentTitle];
     double result = [self.brain performOperetion:operation];
-    self.secondDisplay.text = [self.secondDisplay.text stringByAppendingString:@"  "];
+    NSString *secondResult = [self.brain performOperetion2];
+    NSLog(@"secondResult = %@", secondResult);
+        
+    
     self.display.text = [NSString stringWithFormat:@"%g", result];
-    self.secondDisplay.Text = [self.secondDisplay.text stringByAppendingString:[sender currentTitle]];
-    self.equal.text = @"=";
+    self.secondDisplay.Text = [NSString stringWithFormat:@"%@", secondResult];
+
     checkForOperation = YES;
 }
 
@@ -106,43 +108,9 @@
     [self.brain clearMemory];
     self.display.text = [NSString stringWithFormat:@"0"];
     self.secondDisplay.text = [NSString stringWithFormat:@""];
-    self.equal.text = @"";
     self.userIsInTheMiddleOfEnteringANumber = NO;
     self.topOfTheLine = NO;
     checkForOperation = YES;
-}
-
-- (IBAction)functionPressed:(UIButton *)sender
-{
-    if (self.userIsInTheMiddleOfEnteringANumber)
-    {
-        [self enterPressed];        
-    }
-    NSString *function = [sender currentTitle];
-    double result = [self.brain performFunction:function];
-    self.display.text = [NSString stringWithFormat:@"%g", result];
-    self.secondDisplay.Text = [self.secondDisplay.text stringByAppendingString:@" "];
-    self.secondDisplay.Text = [self.secondDisplay.text stringByAppendingString:[sender currentTitle]];
-    self.equal.text = @"=";
-    topOfTheLine = YES;    
-}
-
-- (IBAction)backspacePressed
-{
-    if (!checkForOperation)
-    {
-        if (self.display.text.length)
-        {
-            self.display.text = [self.display.text substringToIndex:[self.display.text length]-1];
-        } 
-    }
-}
-
-- (IBAction)plusMinusPressed
-{
-    [self.brain plusMinus:[self.display.text doubleValue]];
-    self.display.text = [NSString stringWithFormat: @"%g",[self.brain plusMinus:[self.display.text doubleValue]]];
-    checkForOperation = NO;  
 }
 
 @end
