@@ -89,7 +89,6 @@
         else if ([oneOperand  containsObject: [stack objectAtIndex: i]] && i >= 1)
         {
             NSString *object = [NSString stringWithFormat:@"%@",[stack objectAtIndex: (i-1)]];
-            NSLog(@"index i-1  %@", [stack objectAtIndex: (i-1)]);
             if ([object characterAtIndex: 0] == '(')
             {
                 result = [NSString stringWithFormat:@"%@(%@)", [stack objectAtIndex:i], [stack objectAtIndex: (i-1)]];
@@ -105,13 +104,14 @@
         }
         else if ([oneOperand  containsObject: [stack objectAtIndex: i]] && i < 1)
         {
-            result = [NSString stringWithFormat:@"Error"];        }
+            result = [NSString stringWithFormat:@"Error"];
+        }
 
         else if ([twoOperand  containsObject: [stack objectAtIndex: i]] && i >= 2)
         {
             if ([[stack objectAtIndex: i] isEqualToString:@"*"] || [[stack objectAtIndex: i] isEqualToString:@"/"])
             {
-                if ([[stack objectAtIndex:(i-1)] isKindOfClass:[NSString class]])
+                if ([[stack objectAtIndex:(i-1)] isKindOfClass:[NSString class]] && [[stack objectAtIndex:(i-1)] length] > 1)
                 {
                     if ([[stack objectAtIndex:(i-1)] rangeOfString:@"+"].location != NSNotFound || [[stack objectAtIndex:(i-1)] rangeOfString:@"-"].location != NSNotFound)
                     {
@@ -127,13 +127,15 @@
                         {
                             firstOperand = [NSString stringWithFormat:@"%@", [stack objectAtIndex:(i-2)]];
                         }
-
                         result = [NSString stringWithFormat:@"%@ %@ (%@)", firstOperand, [stack objectAtIndex:i], [stack objectAtIndex:(i-1)]];
-                    }
+                    }                                    }
+                else if ([[stack objectAtIndex:(i-2)] isKindOfClass:[NSString class]] && [[stack objectAtIndex:(i-2)] length] > 1)
+                {
+                    result = [NSString stringWithFormat:@"(%@) %@ %@", [stack objectAtIndex:(i-2)], [stack objectAtIndex:i], [stack objectAtIndex:(i-1)]];
                 }
                 else
                 {
-                     result = [NSString stringWithFormat:@"(%@) %@ %@", [stack objectAtIndex:(i-2)], [stack objectAtIndex:i], [stack objectAtIndex:(i-1)]];
+                     result = [NSString stringWithFormat:@"%@ %@ %@", [stack objectAtIndex:(i-2)], [stack objectAtIndex:i], [stack objectAtIndex:(i-1)]];
                 }
             }
             else
