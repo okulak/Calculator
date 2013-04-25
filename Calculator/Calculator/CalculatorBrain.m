@@ -58,7 +58,10 @@
     NSArray *keys = [NSArray arrayWithObjects:@"x", @"a", @"b", nil];
     NSSet *variables = [[NSSet alloc] initWithArray:keys];
     NSDictionary *variableValues = [NSDictionary dictionaryWithObjects:self.testVariableValue forKeys:keys];
-    [self.programStack addObject:operation];
+    if (![operation isEqualToString:@"nothing"])
+    {
+        [self.programStack addObject:operation];
+    }    
     return [CalculatorBrain runProgram: self.program usingVariableValues:variableValues];
 }
 

@@ -91,10 +91,7 @@
     }
     NSString *operation = [sender currentTitle];
     double result = [self.brain performOperetion:operation];
-    NSString *secondResult = [self.brain performOperetion2];
-    NSLog(@"secondResult = %@", secondResult);
-        
-    
+    NSString *secondResult = [self.brain performOperetion2];    
     self.display.text = [NSString stringWithFormat:@"%g", result];
     self.secondDisplay.Text = [NSString stringWithFormat:@"%@", secondResult];
 
@@ -143,10 +140,15 @@
     }
     else if ([test isEqualToString:@"Test 3"])
     {
-        testValues = [NSArray arrayWithObjects:[NSNumber numberWithDouble: -4], [NSNumber numberWithDouble: 3],  [NSNumber numberWithDouble: 0], nil];
+        testValues = [NSArray arrayWithObjects:[NSNumber numberWithDouble: -4], [NSNumber numberWithDouble: 5],  [NSNumber numberWithDouble: 0], nil];
         [self.brain setTestVariableValue: testValues];
         self.variablesValue.text = [NSString stringWithFormat:@"x = %@  a = %@  b = %@", [testValues objectAtIndex:0], [testValues objectAtIndex:1], [testValues objectAtIndex: 2]];
     }
+    double result = [self.brain performOperetion:@"nothing"];
+    NSString *secondResult = [self.brain performOperetion2];
+    self.display.text = [NSString stringWithFormat:@"%g", result];
+    self.secondDisplay.Text = [NSString stringWithFormat:@"%@", secondResult];
+
 }
 
 - (IBAction)variablesPressed:(id)sender
