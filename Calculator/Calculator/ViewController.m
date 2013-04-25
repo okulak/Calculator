@@ -94,7 +94,6 @@
     NSString *secondResult = [self.brain performOperetion2];    
     self.display.text = [NSString stringWithFormat:@"%g", result];
     self.secondDisplay.Text = [NSString stringWithFormat:@"%@", secondResult];
-
     checkForOperation = YES;
 }
 
@@ -167,6 +166,31 @@
         self.userIsInTheMiddleOfEnteringANumber = YES;
     }
    
+}
+
+- (IBAction)undoPressed
+{
+    if (self.userIsInTheMiddleOfEnteringANumber)
+    {
+        if (self.display.text.length > 0)
+        {
+            NSMutableString *text = [self.display.text mutableCopy];
+            [text deleteCharactersInRange:NSMakeRange([text length]-1, 1)];
+            self.display.text = text;
+            if (!self.display.text.length)
+            {
+                self.userIsInTheMiddleOfEnteringANumber= NO;
+            }
+        }
+    }
+    else
+    {
+        [self.brain deleteLastObject];
+        double result = [self.brain performOperetion:@"nothing"];
+        NSString *secondResult = [self.brain performOperetion2];
+        self.display.text = [NSString stringWithFormat:@"%g", result];
+        self.secondDisplay.Text = [NSString stringWithFormat:@"%@", secondResult];
+    }   
 }
 
 @end

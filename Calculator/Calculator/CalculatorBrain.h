@@ -12,6 +12,7 @@
 
 - (void) pushOperand: (double) operand;
 - (void) pushVariable: (NSString *) variable;
+- (void) deleteLastObject;
 - (double) performOperetion: (NSString*) operation;
 - (NSString *) performOperetion2;
 - (NSString *) lastObject;

@@ -13,7 +13,6 @@
 
 @property (strong, nonatomic) NSMutableArray *programStack;
 
-
 @end
 
 @implementation CalculatorBrain
@@ -50,8 +49,6 @@
 {
     [self.programStack addObject:variable];
 }
-
-
 
 - (double) performOperetion: (NSString*) operation
 {    
@@ -144,29 +141,22 @@
                 result = [NSString stringWithFormat:@"%@ %@ %@", [stack objectAtIndex:(i-2)], [stack objectAtIndex:i], [stack objectAtIndex:(i-1)]];
             }            
             [stack replaceObjectAtIndex:i withObject:result];
-            NSLog( @"stack %@", stack);
-            NSLog( @"i %i", i);
             [stack removeObjectAtIndex:i-1];
             [stack removeObjectAtIndex:i-2];
-            result = [self descriptionOfProgram:stack];
-            NSLog( @"stack %@", stack);
+            result = [self descriptionOfProgram:stack];           
         }
         else if ([twoOperand  containsObject: [stack objectAtIndex: i]] && i < 2)
         {
             result = [NSString stringWithFormat:@"Error"];        }
 
         else
-        {
-            NSLog(@"[stack count] %i", [stack count]);
+        {            
             if ([stack count])
             {
-                result = [NSString stringWithFormat:@"%@", [stack componentsJoinedByString:@" "]];
-                NSLog(@"result else %@",result);
+                result = [NSString stringWithFormat:@"%@", [stack componentsJoinedByString:@" "]];                
             }
         }
-
-    }
-    NSLog(@"returne result %@",result);
+    }    
     return result;
 }
 
@@ -268,8 +258,7 @@
 
  
 + (double)runProgram:(id)program usingVariableValues:(NSDictionary *)variableValues
-{
-    
+{    
     NSMutableArray *stack;
     if ([program isKindOfClass:[NSArray class]])
     {
@@ -282,19 +271,16 @@
 
         if ([variables  containsObject: [stack objectAtIndex: i]])
         {
-            [stack replaceObjectAtIndex:i withObject:[variableValues objectForKey:[stack objectAtIndex: i]]];
-        
+            [stack replaceObjectAtIndex:i withObject:[variableValues objectForKey:[stack objectAtIndex: i]]];        
         }
     }
-    return [self popOperandOffStack: stack];
-    
+    return [self popOperandOffStack: stack];    
 }
 
 - (double) performFunction: (NSString*) function
 {
-    double result = 0;
-    
-        [self pushOperand:result];
+    double result = 0;    
+    [self pushOperand:result];
     return result;
 }
 
@@ -310,5 +296,10 @@
     [self.programStack removeAllObjects];
 }
 
+
+- (void) deleteLastObject
+{
+    [self.programStack removeLastObject];
+}
 
 @end
