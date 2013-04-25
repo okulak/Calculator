@@ -19,6 +19,8 @@
 @implementation CalculatorBrain
 @synthesize programStack = _programStack;
 @synthesize topOfTheLine;
+@synthesize testVariableValue = _testVariableValue;
+
 
 - (NSMutableArray *) programStack
 {
@@ -28,8 +30,15 @@
     }
     return _programStack;
 }
- 
 
+- (NSArray *) testVariableValue
+{
+    if (!_testVariableValue)
+    {
+        _testVariableValue = [[NSMutableArray alloc]init];
+    }
+    return _testVariableValue;
+}
 
 - (void) pushOperand: (double) operand
 {
@@ -37,11 +46,20 @@
     [self.programStack addObject:operandObject];
 }
 
+- (void) pushVariable:(NSString *)variable
+{
+    [self.programStack addObject:variable];
+}
+
+
 
 - (double) performOperetion: (NSString*) operation
-{
-    [self.programStack addObject: operation];
-    return [CalculatorBrain runProgram:self.program];
+{    
+    NSArray *keys = [NSArray arrayWithObjects:@"x", @"a", @"b", nil];
+    NSSet *variables = [[NSSet alloc] initWithArray:keys];
+    NSDictionary *variableValues = [NSDictionary dictionaryWithObjects:self.testVariableValue forKeys:keys];
+    [self.programStack addObject:operation];
+    return [CalculatorBrain runProgram: self.program usingVariableValues:variableValues];
 }
 
 - (NSString *) performOperetion2
@@ -231,7 +249,7 @@
     if ([program isKindOfClass:[NSArray class]])
     {
         stack = [program mutableCopy];
-    }
+    }    
     return [self popOperandOffStack: stack];
 }
 
@@ -248,7 +266,25 @@
  
 + (double)runProgram:(id)program usingVariableValues:(NSDictionary *)variableValues
 {
-    return 0;
+    
+    NSMutableArray *stack;
+    if ([program isKindOfClass:[NSArray class]])
+    {
+        stack = [program mutableCopy];
+    }
+    for (int i=0; i<[stack count]; i++)
+    {
+        NSArray *keys = [NSArray arrayWithObjects:@"x", @"a", @"b", nil];
+        NSSet *variables = [[NSSet alloc] initWithArray:keys];
+
+        if ([variables  containsObject: [stack objectAtIndex: i]])
+        {
+            [stack replaceObjectAtIndex:i withObject:[variableValues objectForKey:[stack objectAtIndex: i]]];
+        
+        }
+    }
+    return [self popOperandOffStack: stack];
+    
 }
 
 - (double) performFunction: (NSString*) function

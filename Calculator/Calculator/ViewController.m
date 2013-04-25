@@ -16,6 +16,7 @@
 @property (nonatomic, strong) CalculatorBrain *brain;
 @property (nonatomic) BOOL topOfTheLine;
 @property (nonatomic) BOOL checkForOperation;
+@property (nonatomic) BOOL checkForVariables;
 
 @end
 
@@ -27,12 +28,14 @@
 @synthesize topOfTheLine;
 @synthesize brain = _brain;
 @synthesize checkForOperation;
+@synthesize checkForVariables;
 
 - (CalculatorBrain *) brain
 {
     if (!_brain)
     {
         _brain = [[CalculatorBrain alloc]init];
+        [self.brain setTestVariableValue:[NSArray arrayWithObjects:[NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], nil]];
     }
     return _brain;
 }
@@ -55,7 +58,15 @@
 
 - (IBAction)enterPressed
 {
-    [self.brain pushOperand:[self.display.text doubleValue]];
+    if (checkForVariables)
+    {
+        [self.brain pushVariable:self.display.text];
+        checkForVariables = NO;
+    }
+    else
+    {
+        [self.brain pushOperand:[self.display.text doubleValue]];
+    }
     self.display.text = @"0";
     self.userIsInTheMiddleOfEnteringANumber = NO;    
     if (topOfTheLine)
@@ -111,6 +122,49 @@
     self.userIsInTheMiddleOfEnteringANumber = NO;
     self.topOfTheLine = NO;
     checkForOperation = YES;
+}
+
+- (IBAction)setVariables:(id)sender
+{
+    NSArray *testValues;
+    NSString *test = [sender currentTitle];
+    if ([test isEqualToString:@"Test 1"])
+    {
+        testValues = [NSArray arrayWithObjects:[NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], nil];
+        [self.brain setTestVariableValue: testValues];
+        self.variablesValue.text = [NSString stringWithFormat:@"x = %@  a = %@  b = %@", [testValues objectAtIndex:0], [testValues objectAtIndex:1], [testValues objectAtIndex: 2]];
+        
+    }
+    else if ([test isEqualToString:@"Test 2"])
+    {
+        testValues = [NSArray arrayWithObjects: [NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 3], [NSNumber numberWithDouble: 4], nil];
+        [self.brain setTestVariableValue: testValues];
+        self.variablesValue.text = [NSString stringWithFormat:@"x = %@  a = %@  b = %@", [testValues objectAtIndex: 0], [testValues objectAtIndex: 1], [testValues objectAtIndex: 2]];
+    }
+    else if ([test isEqualToString:@"Test 3"])
+    {
+        testValues = [NSArray arrayWithObjects:[NSNumber numberWithDouble: -4], [NSNumber numberWithDouble: 3],  [NSNumber numberWithDouble: 0], nil];
+        [self.brain setTestVariableValue: testValues];
+        self.variablesValue.text = [NSString stringWithFormat:@"x = %@  a = %@  b = %@", [testValues objectAtIndex:0], [testValues objectAtIndex:1], [testValues objectAtIndex: 2]];
+    }
+}
+
+- (IBAction)variablesPressed:(id)sender
+{
+    checkForVariables = YES;
+    checkForOperation = NO;
+    NSString *digit = [sender currentTitle];
+    if (self.userIsInTheMiddleOfEnteringANumber)
+    {
+        self.display.Text = [self.display.text stringByAppendingString:digit];
+        
+    }
+    else
+    {
+        self.display.text = digit;
+        self.userIsInTheMiddleOfEnteringANumber = YES;
+    }
+   
 }
 
 @end

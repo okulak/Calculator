@@ -11,6 +11,7 @@
 @interface CalculatorBrain : NSObject
 
 - (void) pushOperand: (double) operand;
+- (void) pushVariable: (NSString *) variable;
 - (double) performOperetion: (NSString*) operation;
 - (NSString *) performOperetion2;
 - (NSString *) lastObject;
@@ -18,6 +19,7 @@
 
 
 @property (readonly)id program;
+@property (strong, nonatomic) NSArray *testVariableValue;
 
 + (double) runProgram: (id) program;
 + (NSString *) runSecondProgram: (id) program;
