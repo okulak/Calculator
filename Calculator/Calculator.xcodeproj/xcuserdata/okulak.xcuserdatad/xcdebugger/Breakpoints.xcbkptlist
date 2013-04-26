@@ -15,29 +15,16 @@
          endingLineNumber = "19">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "CalculatorTest/CalculatorTest.m"
-         timestampString = "388502376.647104"
+         filePath = "Calculator/CalculatorBrain.m"
+         timestampString = "388671251.293338"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "60"
-         endingLineNumber = "60"
-         landmarkName = "-testMultiplicationResult3"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "CalculatorTest/CalculatorTest.m"
-         timestampString = "388488854.950948"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "50"
-         endingLineNumber = "50"
-         landmarkName = "-testMultiplicationResult2"
+         startingLineNumber = "57"
+         endingLineNumber = "57"
+         landmarkName = "-performOperetion:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

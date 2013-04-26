@@ -8,6 +8,7 @@
 
 #import "CalculatorTest.h"
 #import "CalculatorBrain.h"
+#import "ViewController.h"
 
 @interface CalculatorTest ()
 @property (strong, nonatomic) CalculatorBrain *brain;
@@ -40,10 +41,10 @@
 
 - (void)testMultiplicationResult2
 {
+    [self.brain setTestVariableValue:[NSArray arrayWithObjects:[NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], nil]];
     [self.brain pushOperand:3.0];
     [self.brain pushOperand:5.0];
     [self.brain performOperetion:@"+"];
-//    [self.brain performOperetion2];
     [self.brain pushOperand:5.0];
     [self.brain performOperetion:@"+"];
     NSString *result = [self.brain performOperetion2];
@@ -53,6 +54,7 @@
 
 - (void)testMultiplicationResult3
 {
+    [self.brain setTestVariableValue:[NSArray arrayWithObjects:[NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], nil]];
     [self.brain pushOperand:3.0];
     [self.brain performOperetion:@"sin"];
     [self.brain performOperetion:@"sqrt"];
@@ -62,12 +64,12 @@
 
 - (void)testMultiplicationResult4
 {
+    [self.brain setTestVariableValue:[NSArray arrayWithObjects:[NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], nil]];
     [self.brain pushOperand:2.0];
     [self.brain pushOperand:3.0];
     [self.brain pushOperand:4.0];
     [self.brain pushOperand:5.0];
     [self.brain performOperetion:@"+"];
-    //    [self.brain performOperetion2];
     [self.brain performOperetion:@"+"];
     NSString *result = [self.brain performOperetion2];
     STAssertTrue([result isEqualToString:@"2 3 + 4 + 5"], @"Must be 2 3 + 4 + 5");
@@ -75,6 +77,7 @@
 
 - (void)testMultiplicationResult5
 {
+    [self.brain setTestVariableValue:[NSArray arrayWithObjects:[NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], nil]];
     [self.brain pushOperand:2.0];
     [self.brain pushOperand:3.0];
     [self.brain performOperetion:@"+"];
@@ -88,6 +91,7 @@
 
 - (void)testMultiplicationResult6
 {
+    [self.brain setTestVariableValue:[NSArray arrayWithObjects:[NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], nil]];
     [self.brain pushOperand:2.0];
     [self.brain pushOperand:3.0];
     [self.brain performOperetion:@"sqrt"];
@@ -99,6 +103,7 @@
 
 - (void)testMultiplicationResult7
 {
+    [self.brain setTestVariableValue:[NSArray arrayWithObjects:[NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], nil]];
     [self.brain pushOperand:2.0];
     [self.brain pushOperand:3.0];
     [self.brain performOperetion:@"sqrt"];
@@ -113,6 +118,7 @@
 
 - (void)testMultiplicationResult8
 {
+    [self.brain setTestVariableValue:[NSArray arrayWithObjects:[NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], nil]];
     [self.brain pushOperand:2.0];
     [self.brain pushOperand:3.0];
     [self.brain pushOperand:5.0];
@@ -124,10 +130,11 @@
 
 - (void)testMultiplicationResult9
 {
+    [self.brain setTestVariableValue:[NSArray arrayWithObjects:[NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], nil]];
     [self.brain pushOperand:2.0];
     [self.brain pushOperand:3.0];
-    [self.brain pushOperand:5.0];
-    [self.brain performOperetion:@"+"];
+    [self.brain pushOperand:5.0];    
+    [self.brain performOperetion:@"+"];;
     [self.brain performOperetion:@"*"];
     [self.brain performOperetion:@"cos"];
     NSString *result = [self.brain performOperetion2];
@@ -136,6 +143,7 @@
 
 - (void)testMultiplicationResult10
 {
+    [self.brain setTestVariableValue:[NSArray arrayWithObjects:[NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], nil]];
     [self.brain pushOperand:2.0];
     [self.brain pushOperand:3.0];
     [self.brain pushOperand:5.0];
@@ -152,6 +160,7 @@
 
 - (void)testMultiplicationResult11
 {
+    [self.brain setTestVariableValue:[NSArray arrayWithObjects:[NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], nil]];
     [self.brain pushOperand:2.0];
     [self.brain pushOperand:3.0];
     [self.brain pushOperand:5.0];
