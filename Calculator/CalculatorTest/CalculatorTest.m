@@ -41,7 +41,6 @@
 
 - (void)testMultiplicationResult2
 {
-    [self.brain setTestVariableValue:[NSArray arrayWithObjects:[NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], nil]];
     [self.brain pushOperand:3.0];
     [self.brain pushOperand:5.0];
     [self.brain performOperetion:@"+"];

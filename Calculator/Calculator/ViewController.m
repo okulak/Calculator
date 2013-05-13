@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Oleksandr Kulakov. All rights reserved.
 //
 
-#include <math.h>
+
 #import "ViewController.h"
 #import "CalculatorBrain.h"
 
@@ -35,7 +35,7 @@
     if (!_brain)
     {
         _brain = [[CalculatorBrain alloc]init];
-        [self.brain setTestVariableValue:[NSArray arrayWithObjects:[NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], [NSNumber numberWithDouble: 0], nil]];
+        
     }
     return _brain;
 }

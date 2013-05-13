@@ -20,6 +20,14 @@
 @synthesize topOfTheLine;
 @synthesize testVariableValue = _testVariableValue;
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        [self setTestVariableValue:[NSArray arrayWithObjects:@0, @0, @0, nil]];
+    }
+    return self;
+}
 
 - (NSMutableArray *) programStack
 {
